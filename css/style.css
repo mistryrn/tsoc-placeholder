@@ -12,11 +12,14 @@ html { background-color: #f2f0e4; }
     font-style: normal;
 
 }
+h1 { font: 48px "bebas_neueregular", Helvetica, Arial, Sans-Serif; text-align: center; }
 h3 { font: 14px "bebas_neueregular", Helvetica, Arial, Sans-Serif; }
 a {	text-decoration: none; }
-.center
-{
-	margin: 30px auto 20px;
+.heading {
+	margin-top: 25px; 
+}
+.center {
+	margin: 20px auto;
 	width:448px;
 }
 #logo {
