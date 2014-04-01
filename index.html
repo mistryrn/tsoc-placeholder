@@ -2,19 +2,60 @@
 <html>
 <head>
 	<meta charset='UTF-8' />
-	<title>The Sound of Change</title>
+	<title>The Sound of Change - Local Music &amp; International Development</title>
+	<link rel="icon" href="images/favicon.png">
 	<meta content="en" http-equiv="content-language"></meta>
-	<meta name="description" content="Official Website for The Sound of Change - Local Music for International Development. We put on live shows with bands we believe in and work with organizations around the world to create tangible change and sustainable development.">
-	<meta name="keywords" content="The Sound of Change, TSOC, Lucas Canzona, live shows, non-profit, charity, local music, international development, UNICEF, War Child, ColaLife">
+	<meta name="description" content="We put on local shows & support international development.">
 	<link rel='stylesheet' href='css/style.css' type="text/css" charset="utf-8"/>
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+	<script src='http://code.jquery.com/jquery-latest.min.js'></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var target_date = new Date("04/07/2014 08:00 PM EDT").getTime();
+			var days, hours, minutes, seconds;
+			var countdown = document.getElementById("countdown");
+
+			setInterval(function() {
+				// calculate time left
+				var current_date = new Date().getTime();
+				var seconds_left = (target_date - current_date) / 1000;
+				days = ("0" + parseInt(seconds_left / 86400)).slice(-2);
+				seconds_left = seconds_left % 86400;
+				hours = ("0" + parseInt(seconds_left / 3600)).slice(-2);
+				seconds_left = seconds_left % 3600;
+				minutes = ("0" + parseInt(seconds_left / 60)).slice(-2);
+				seconds = ("0" + parseInt(seconds_left % 60)).slice(-2);
+				// update countdown
+				countdown.innerHTML = days + ":" + hours + ":" + minutes + ":" + seconds;
+			}, 1000 );
+
+			$('form > input').keyup(function () {
+				if ($(this).val() != '') {
+					$('#submitbtn').removeAttr('disabled');
+					$('#submitbtn').attr('class','enabled');
+				}
+				else {
+					$('#submitbtn').attr('disabled','disabled');
+					$('#submitbtn').removeAttr('class');
+				}
+			});
+		});
+	</script>
 </head>
 <body>
-	<div class="heading"><h1>NEW WEBSITE COMING JANUARY 2014</h1></div>
+	<div class="heading"><h1 id="countdown">COMING SOON</h1></div>
 	<div class="center"><img id="logo" src="images/logo.png"></div>
+	<h2>Sign up for our Newsletter</h2>
+	<div class="signupbox" id="signupbox">
+		<form id="signup" action="http://thesoundofchange.us8.list-manage.com/subscribe/post" method="POST">
+			<input type="hidden" name="u" value="5c4c4e54dc56466e03b50d895">
+			<input type="hidden" name="id" value="709e969bdc">
+			<input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" placeholder="Please enter your email address" />
+			<input type="submit" name="submit" id="submitbtn" disabled="disabled" value="Sign up">
+	    </form>
+	</div>
 	<nav id="menu">
 		<ul>
 			<li>
@@ -36,12 +77,17 @@
 				<a title="Subscribe to our YouTube" href="https://youtube.com/tsocmusic" class="menu-item">
 	    			<img src="images/youtube1.png" onmouseover="this.src='images/youtube2.png'" onmouseout="this.src='images/youtube1.png'" />
 				</a>
+			</li>
+			<li>
+				<a title="Send us an Email" href="mailto:info@thesoundofchange.org" class="menu-item">
+	    			<img src="images/mail1.png" onmouseover="this.src='images/mail2.png'" onmouseout="this.src='images/mail1.png'" />
+				</a>
 			</li>			
 		</ul>
 	</nav>
 	<footer>
 		<div id="copyright">
-			<h3>&copy; 2013 The Sound of Change - Designed by <a href="http://www.rakeshmistry.ca/">Rakesh Mistry</a></h3>
+			<h3>&copy; 2014 The Sound of Change - Designed by <a href="http://www.rakeshmistry.ca/">Rakesh Mistry</a></h3>
 		</div>
 	</footer>
 </body>
